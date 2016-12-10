@@ -31,13 +31,13 @@ class Score
   end
 
   def check_number_syllables
-  #obvi this will need to be changed
     #if number_syllables == 1
       @score -= 1
     #elsif number_syllables > 1 && accent > 1
       #@score += 2 
     #elsif number_syllables == 2
-      #if accent is on 1st && number_phenomes >= 6
+      #check_number_phenomes
+      #if accent is on 1st && @phenome_count >= 6
         #@score -= 2 
     #elsif number_syllables >= 3 && accent == 1 
       #@score += 1
@@ -45,16 +45,18 @@ class Score
   end
 
   def check_where_accent_is
+    #add login here
+    #@accent = 1 (# of syllable at which emphasis occurs)
   end
 
   def check_number_phenomes
-    phenome_count = 0
+    @phenome_count = 0
     phenomes = ["b","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"]
     combo_phenomes = ["ng","ch","sh","th"]
     
     @broken.each do |x|
       if phenomes.include? x
-        phenome_count += 1
+        @phenome_count += 1
       end
     end
 
@@ -62,7 +64,7 @@ class Score
     puts orig_name
     combo_phenomes.each do |x|
       if orig_name.include? x 
-        phenome_count -= 1
+        @phenome_count -= 1
       end
     end 
   end
