@@ -1,23 +1,24 @@
 require_relative '../score/score'
 require_relative '../name/name'
 require_relative '../config'
+require_relative '../name/5000-common-names'
+require_relative '../name/5000-common-words'
 
 class Gimme
 
   def create_name
     new_name = Name.new.generate
-    check_against_list(new_name)
+    check_against_lists(new_name)
     score_name(new_name)
     print @final_name
   end
 
-  def check_against_list(name)
-    #check against list of common names
-    #if list.include? name
+  def check_against_lists(name)
+    if 5000_common_names.include? name
+      create_name
+    elsif 5000_common_words.include? name
       #create_name
-    #else
-      #nothing
-    #end
+    end
   end
 
 
@@ -34,13 +35,3 @@ class Gimme
 end
 
 output = Gimme.new.create_name
-
-client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = "oLBWG7i3THDSjnLvIaltzR3eb"
-  config.consumer_secret     = "jbnhXXjaBR74kISmm3wvuoHCl6doBtmgSeETOJqfTcuqzRDq4i"
-  config.access_token        = "807668096534192128-iV0vcWPLlDVga03h9ra0aWWWjwp67Zz"
-  config.access_token_secret = "lSkpCPu4VYqBgzIbGtUjhhuM9BW7Rq3GrUN9XFIVxo1r8"
-end
-
-
-client.update(output)
