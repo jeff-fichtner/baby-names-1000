@@ -8,8 +8,8 @@ class Score
   def get_score(name)
     @name = name
     @score = 0
-    break_down_name(name)
-    check_score(name)
+    break_down_name
+    check_score
   end
 
   def break_down_name
@@ -37,6 +37,7 @@ class Score
 
   def check_number_syllables
     number_syllables = SyllableParser.run(name).length
+    check_number_phenomes
     if number_syllables == 1
       @score -= 1
     elsif number_syllables == 2 && @phenome_count >= 6
