@@ -48,9 +48,23 @@ class Score
   end
 
   def check_number_phenomes
+    phenome_count = 0
     phenomes = ["b","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"]
     combo_phenomes = ["ng","ch","sh","th"]
-    #look thru for each individual letter, then look at name for combo-letters, then add all those 
+    
+    @broken.each do |x|
+      if phenomes.include? x
+        phenome_count += 1
+      end
+    end
+
+    orig_name = @broken.join ""
+    puts orig_name
+    combo_phenomes.each do |x|
+      if orig_name.include? x 
+        phenome_count -= 1
+      end
+    end 
   end
 
   def check_schwa
