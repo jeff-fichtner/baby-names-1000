@@ -22,27 +22,43 @@ class Score
     check_schwa
     check_other_vowel
     check_th
+    check_stop_consonant
   end
 
   def check_number_syllables
   #obvi this will need to be changed
-    @score += 1
+    @score -= 1
   end
 
   def check_number_phenomes
-  
+    #this is gonna be complicated, actually 
   end
 
   def check_schwa
     if @broken.last == "a"
-      @score += 1
+      @score += 2
     end
   end
 
   def check_other_vowel
+    vowels = ["e","i","o","u","y"]
+    if vowels.include? @broken.last
+      @score += 1
+    end
   end
 
   def check_th
+    th = ["s","z","f","v","th","ch","zh","dzh"]
+    if th.include? @broken.last
+      @score -= 1
+    end
+  end
+
+  def check_stop_consonant
+    stop_consonant = ["p","b","t","d","k","g"]
+    if stop_consonant.include? @broken.last
+      @score -= 2
+    end
   end
 
 end
