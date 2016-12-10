@@ -61,7 +61,6 @@ class Score
     end
 
     orig_name = @broken.join ""
-    puts orig_name
     combo_phenomes.each do |x|
       if orig_name.include? x 
         @phenome_count -= 1
