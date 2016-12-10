@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Non-binary Name Generator</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1>Non-binary Name Generator</h1>
+		<form class="form">
+			<label>Length <input id="name-length" type="number" value="6" size="2" /></label>
+			<button id="generator" type="button">Generate</button>
+		</form>
+		<div class="left">
+			<h2>Suggested names</h2>
+			<ul id="names"></ul>
+		</div>
+		<div class="right">
+			<h2>Favorites</h2>
+			<ul id="favorites"></ul>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+		<script src="generator.js"></script>
+		<script src="gender.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+body {
+	font-size: 18px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	margin: 24px;
+}
+
+input {
+	font-size: 18px;
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 4px;
+}
+
+button {
+	font-size: 18px;
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 4px 12px;
+}
+
+.form {
+	padding: 24px;
+}
+
+.left,
+.right {
+	width: 50%;
+	box-sizing: border-box;
+	padding: 0 24px;
+	float: left;
+}
+
+#names,
+#favorites {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#names li,
+#favorites li {
+	height: 44px;
+	box-sizing: border-box;
+	padding: 4px;
+}
+
+#names button,
+#favorites button {
+	float: right;
+}
+
+.name {
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+}
+
+.tag {
+	display: inline-block;
+	width: 36px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.tag--male {
+	background: #ccffff;
+}
+
+.tag--female {
+	background: #ffccff;
+}
