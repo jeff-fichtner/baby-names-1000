@@ -12,10 +12,15 @@ class Score
   end
 
   def check_score(name)
-    check_number_syllables
+    check_accent
     check_number_phenomes
     check_last_phenome
-    puts @score
+    return @score
+  end
+
+  def check_accent
+    check_number_syllables
+    check_where_accent_is
   end
 
   def check_last_phenome
@@ -27,11 +32,25 @@ class Score
 
   def check_number_syllables
   #obvi this will need to be changed
-    @score -= 1
+    #if number_syllables == 1
+      @score -= 1
+    #elsif number_syllables > 1 && accent > 1
+      #@score += 2 
+    #elsif number_syllables == 2
+      #if accent is on 1st && number_phenomes >= 6
+        #@score -= 2 
+    #elsif number_syllables >= 3 && accent == 1 
+      #@score += 1
+    #end
+  end
+
+  def check_where_accent_is
   end
 
   def check_number_phenomes
-    #this is gonna be complicated, actually 
+    phenomes = ["b","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"]
+    combo_phenomes = ["ng","ch","sh","th"]
+    #look thru for each individual letter, then look at name for combo-letters, then add all those 
   end
 
   def check_schwa
