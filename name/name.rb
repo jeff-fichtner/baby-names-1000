@@ -46,7 +46,7 @@ class Name
       'y',
       'z','zz']
      
-    cointoss = [0..4].sample
+    cointoss = [0..2].sample
    
     if cointoss == 0
         name = consonant_beginnings.sample + mid_vowels.sample + consonant_endings.sample
