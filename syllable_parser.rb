@@ -16,7 +16,7 @@ module SyllableParser
 				string << word.slice!(0)
 			end
 		end
-		string.capitalize
+		string.split('-')
 	end
 
 	def self.syllable?(word)
