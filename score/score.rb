@@ -1,4 +1,7 @@
+require_relative '../syllable_parser'
+
 class Score
+  include SyllableParser
 
   def get_score(input, incoming_score=0)
     name = input
