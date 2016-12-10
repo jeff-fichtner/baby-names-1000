@@ -1,21 +1,26 @@
-class Score
+require_relative '../syllable_parser'
 
-  def get_score(input, incoming_score=0)
-    name = input
-    @score = incoming_score.to_i
-    break_down_name(name)
-    check_score(name)
+class Score
+  attr_reader :name, :broken
+  attr_accessor :score, :phenome_count
+  include SyllableParser
+
+  def get_score(name)
+    @name = name
+    @score = 0
+    break_down_name
+    check_score
   end
 
-  def break_down_name(name)
+  def break_down_name
     @broken = name.split ""
   end
 
-  def check_score(name)
+  def check_score
     check_accent
     check_number_phenomes
     check_last_phenome
-    return @score
+    return score
   end
 
   def check_accent
@@ -31,17 +36,17 @@ class Score
   end
 
   def check_number_syllables
-    #if number_syllables == 1
+    number_syllables = SyllableParser.run(name).length
+    check_number_phenomes
+    if number_syllables == 1
       @score -= 1
-    #elsif number_syllables > 1 && accent > 1
-      #@score += 2 
-    #elsif number_syllables == 2
-      #check_number_phenomes
-      #if accent is on 1st && @phenome_count >= 6
-        #@score -= 2 
-    #elsif number_syllables >= 3 && accent == 1 
-      #@score += 1
-    #end
+    elsif number_syllables == 2 && @phenome_count >= 6
+      @score -= 2
+    elsif number_syllables == 3
+      @score += 1
+    elsif number_syllables < 3
+      @score += 2
+    end
   end
 
   def check_where_accent_is
